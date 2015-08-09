@@ -38,6 +38,7 @@ var animationEvent = whichAnimationEvent();
     progressDemo();
     pageBreak();
     selectView();
+        $('.folder-tree').jScrollPane();
     $('input').iCheck();
 
     $('input').iCheck({
@@ -372,7 +373,7 @@ function selectView() {
             bodyClass.addClass('v3');
             var theHeight = surveyView.height();
             $.each(surveyItems, function() {
-                $(this).css('min-height', theHeight+10);
+                $(this).css('min-height', theHeight + 10);
             });
             $.each(surveyItem, function() {
                 if ($(this).is(':empty')) {

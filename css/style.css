@@ -2450,6 +2450,106 @@ button.close {
   color: #fff;
 }
 
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+.jspContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.jspPane {
+  position: absolute;
+  width: 294px !important;
+}
+
+.jspVerticalBar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background: red;
+}
+
+.jspHorizontalBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: transparent;
+}
+
+.jspCap {
+  display: none;
+}
+
+.jspHorizontalBar .jspCap {
+  float: left;
+}
+
+.jspTrack {
+  background: #1bc6fc;
+  position: relative;
+}
+
+.jspDrag {
+  background: #0F789D;
+  position: relative;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag {
+  float: left;
+  height: 100%;
+}
+
+.jspArrow {
+  background: #50506d;
+  text-indent: -20000px;
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.jspArrow.jspDisabled {
+  cursor: default;
+  background: #80808d;
+}
+
+.jspVerticalBar .jspArrow {
+  height: 16px;
+}
+
+.jspHorizontalBar .jspArrow {
+  width: 16px;
+  float: left;
+  height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus {
+  outline: none;
+}
+
+.jspCorner {
+  background: #eeeef4;
+  float: left;
+  height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner {
+  margin: 0 -3px 0 0;
+}
+
 .clearfix {
   clear: both;
 }
@@ -3953,23 +4053,28 @@ input[type=text]:focus {
 
 .v2 .folder-tree {
   width: 100%;
+  overflow-y: auto;
+  position: absolute;
+  bottom: 0;
+  top: 120px;
 }
-.v2 .folder-tree > li .folder-item {
+.v2 .folder-tree li .folder-item {
   color: white;
+  cursor: pointer;
 }
-.v2 .folder-tree > li .folder-item > span {
+.v2 .folder-tree li .folder-item > span {
   background: url(../img/chevron-right-white.png) no-repeat;
   display: inline-block;
   height: 15px;
   width: 9px;
   margin: 0 10px 0 0;
 }
-.v2 .folder-tree > li .folder-item:hover {
+.v2 .folder-tree li .folder-item:hover {
   background-color: #00698e;
   color: white;
   text-decoration: none;
 }
-.v2 .folder-tree > li .folder-item:hover > span {
+.v2 .folder-tree li .folder-item:hover > span {
   background: url(../img/chevron-right-white.png) no-repeat;
 }
 .v2 .folder-tree .open > .folder-item:hover > span {
@@ -4091,7 +4196,6 @@ input[type=text]:focus {
   left: -300px;
   width: 300px;
   height: 100%;
-  overflow-y: auto;
   -webkit-transition: width 300ms ease, transform 300ms ease;
   -o-transition: width 300ms ease, transform 300ms ease;
   transition: width 300ms ease, transform 300ms ease;
@@ -4137,7 +4241,7 @@ input[type=text]:focus {
 .search-container input::selection {
   background-color: #00698e;
 }
-.search-container:before {
+.search-container span {
   content: '';
   position: absolute;
   background-image: url(../img/search.png);
