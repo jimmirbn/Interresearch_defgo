@@ -39,6 +39,7 @@ var animationEvent = whichAnimationEvent();
     pageBreak();
     selectView();
         $('.folder-tree').jScrollPane();
+        $('.scroll-items').jScrollPane();
     $('input').iCheck();
 
     $('input').iCheck({

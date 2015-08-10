@@ -2463,6 +2463,9 @@ button.close {
 
 .jspPane {
   position: absolute;
+}
+
+.folder-tree .jspPane {
   width: 294px !important;
 }
 
@@ -3022,11 +3025,12 @@ ul {
 }
 .btn--extra {
   padding: 0;
-  white-space: pre-wrap;
+  white-space: nowrap;
   height: auto;
   width: 100%;
-  padding: 8px;
+  padding: 7px 8px 9px;
   font-size: 15px;
+  text-align: left;
 }
 
 .helpBtn {
@@ -4478,9 +4482,19 @@ input[type=text]:focus {
   right: 0;
   bottom: 0;
   padding: 0 20px;
+  -webkit-transition: transform 300ms ease;
+  -o-transition: transform 300ms ease;
+  transition: transform 300ms ease;
+  will-change: transform, right;
 }
 .v2 .dashboard-container.side-menu-active {
-  left: 300px;
+  right: 300px;
+  left: 0;
+  -webkit-transform: translateX(300px);
+  -moz-transform: translateX(300px);
+  -ms-transform: translateX(300px);
+  -o-transform: translateX(300px);
+  transform: translateX(300px);
 }
 .v2 .dashboard-container .select-all {
   float: left;
@@ -5240,8 +5254,8 @@ input[type=text]:focus {
 
 .extra-menu {
   position: absolute;
-  right: 10px;
-  width: 210px;
+  right: 6px;
+  width: auto;
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
   z-index: 1;
   top: 70px;
@@ -5267,9 +5281,10 @@ input[type=text]:focus {
   border-top: solid 1px #006a8f;
 }
 .extra-menu .btn span, .extra-menu .btn--header span {
-  display: block;
-  float: left;
-  position: absolute;
+  display: inline-block;
+  margin-right: 15px;
+  top: 4px;
+  position: relative;
 }
 .extra-menu .btn span.folder, .extra-menu .btn--header span.folder {
   background-image: url(../img/folder_white.png);
@@ -5352,6 +5367,50 @@ input[type=text]:focus {
   position: relative;
 }
 
+.loader {
+  margin-top: -12px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  text-indent: -9999em;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-left: 2px solid #0F789D;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 .outer-container .survey-innerContainer {
   max-width: 1224px;
   min-width: 950px;
